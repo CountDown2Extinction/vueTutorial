@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learning vue</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <style>
+        .box {
+            padding: 100px 0;
+            width: 400px;
+            text-align: center;
+            background: #ddd;
+            margin: 20px;
+            display: inline-block;
+        }
+    </style>
+</head>
+<body>
+    <h1>hello vue</h1>
+
+    <div id="app">
+        <!-- <h2>I am the template now</h2> -->
+
+        <!-- use double curly braces for variables inside method objects to output dynamic values inside the template -->
+
+        <!-- variable that are not defined will return nothing -->
+
+        <!-- only need curly braces when outputting variables to the browser -->
+
+        <!-- v-if is view if true, this is how to conditionally render something -->
+
+        <div v-if="showBooks">
+            <p> <!--  {{ titles }} --> {{ title }} - {{ author }} - {{ age }}</p>
+        </div>
+
+        <button @click="toggleShowBooks">
+            <span v-if="showBooks"> Hide Books </span>
+            <span v-else>Show Books</span>
+            <!-- <span v-if="!showBooks"> Show Books</span> -->
+        </button>
+
+        <!-- this difference between v-if for conditionally rendering and v-show is the first one removes the element from the dom completely and injects it back in. The second one uses css to change the style of the element to dispaly none. Generally speaking, removing and injecting things into the dom is taxing and slower than hiding things with css -->
+
+        <div v-show="showBooks">currently showing books</div>
+        <!-- v-on is known as a directive, there are many directives, v stands of vue, on when to activate, click stands for the type of event so button on click event -->
+
+        <button v-on:click="age++">Increase Age</button>
+        <button v-on:click="age--">Decrease Age</button>
+        <div @click="changeTitle"> change book title</div>
+
+        <br>
+
+        <!-- mouse events -->
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+
+
+
+    </div>
+    
+    <!-- {{ title }} vue is not controlling this portion of app -->
+
+</body>
+
+<script src="app.js"></script>
+
+</html>
